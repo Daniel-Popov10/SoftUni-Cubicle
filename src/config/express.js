@@ -1,13 +1,20 @@
-const express = require('express');
-const handlebars = require('express-handlebars');
-const bodyParser = require('body-parser');
+const express = require("express");
+const handlebars = require("express-handlebars");
+const bodyParser = require("body-parser");
 
 module.exports = (app) => {
-    
-    //TODO: Setup the view engine
+  //TODO: Setup the view engine
+  app.engine(
+    "hbs",
+    handlebars.engine({
+      extname: "hbs",
+    })
+  );
 
-    //TODO: Setup the body parser
+  app.set("view engine", "hbs");
+  app.set("views", "src/views");
 
-    //TODO: Setup the static files
+  //TODO: Setup the body parser
 
+  //TODO: Setup the static files
 };
