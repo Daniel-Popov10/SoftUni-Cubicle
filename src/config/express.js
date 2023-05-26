@@ -16,7 +16,7 @@ module.exports = (app) => {
   app.set("views", "src/views");
 
   //TODO: Setup the body parser
-
+  app.use(express.urlencoded({ extended: false }));
   //TODO: Setup the static files
   app.use(express.static(path.resolve(__dirname, "../static")));
 };
