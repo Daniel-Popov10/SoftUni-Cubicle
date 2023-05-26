@@ -1,6 +1,7 @@
 const express = require("express");
 const handlebars = require("express-handlebars");
 const bodyParser = require("body-parser");
+const path = require("path");
 
 module.exports = (app) => {
   //TODO: Setup the view engine
@@ -17,5 +18,5 @@ module.exports = (app) => {
   //TODO: Setup the body parser
 
   //TODO: Setup the static files
-  app.use(express.static("src/static"));
+  app.use(express.static(path.resolve(__dirname, "../static")));
 };
