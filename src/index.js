@@ -1,10 +1,13 @@
 const env = process.env.NODE_ENV || "development";
 
 const config = require("./config/config")[env];
-const app = require("express")();
+const express = require("express");
+const app = express();
+const expressConfig = require("./config/express");
+const routes = require("./config/routes");
 
-require("./config/express")(app);
-require("./config/routes")(app);
+expressConfig(app);
+app.use(routes);
 
 app.listen(
   config.port,

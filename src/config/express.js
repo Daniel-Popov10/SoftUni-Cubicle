@@ -1,9 +1,8 @@
 const express = require("express");
 const handlebars = require("express-handlebars");
-const bodyParser = require("body-parser");
 const path = require("path");
 
-module.exports = (app) => {
+function expressConfig(app) {
   //TODO: Setup the view engine
   app.engine(
     "hbs",
@@ -19,4 +18,6 @@ module.exports = (app) => {
   app.use(express.urlencoded({ extended: false }));
   //TODO: Setup the static files
   app.use(express.static(path.resolve(__dirname, "../static")));
-};
+}
+
+module.exports = expressConfig;

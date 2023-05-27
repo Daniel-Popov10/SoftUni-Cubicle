@@ -1,6 +1,9 @@
 // TODO: Require Controllers...
+const router = require("express").Router();
 const homeController = require("../controllers/homeController");
-module.exports = (app) => {
-  // TODO...
-  app.use(homeController);
-};
+
+// TODO...
+
+router.use(homeController);
+
+module.exports = router;
