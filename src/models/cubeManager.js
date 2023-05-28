@@ -28,7 +28,7 @@ const cubeManager = {
 
   createCube: (createCube = (cubeData) => {
     const newCube = {
-      id: uniqueId,
+      id: uniqueId(),
       ...cubeData,
     };
     cubes.push(newCube);
