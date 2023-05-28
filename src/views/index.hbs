@@ -8,8 +8,8 @@
         <input type="number" name="to" class="difficulty" placeholder="Difficulty to...">
         <input type="submit" value="search">
       </form>
-      {{#if cubes}}
-      {{#each cubes}}
+      {{#if allCubes}}
+      {{#each allCubes}}
       <div class="cube">
         <img class="cube" src="{{imageUrl}}">
         <p class="name">{{name}}</p>
@@ -19,5 +19,5 @@
      {{/each}}
     </main>
         {{else}}
-        <h1>There are no cubes:(</h1>
+        <h1>There are no cubes :(</h1>
         {{/if}}

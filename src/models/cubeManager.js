@@ -16,4 +16,13 @@ const cubes = [
   },
 ];
 
-module.exports = getAllCubes = () => cubes.slice();
+const cubeManager = {
+  getAllCubes: (getAllCubes = () => {
+    let result = cubes.slice();
+    return result;
+  }),
+
+  getSingleCube: (getSingleCube = (id) => cubes.find((cube) => cube.id === id)),
+};
+
+module.exports = cubeManager;
