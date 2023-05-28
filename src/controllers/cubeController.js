@@ -5,6 +5,18 @@ router.get("/create", (req, res) => {
   res.render("create");
 });
 
+router.post("/addCube", (req, res) => {
+  const { name, description, imageUrl, difficultyLevel } = req.body;
+
+  cubeManager.createCube({
+    name,
+    description,
+    imageUrl,
+    difficultyLevel: Number(difficultyLevel),
+  });
+  res.redirect("/");
+});
+
 router.get("/details/:cubeId", (req, res) => {
   const id = req.params.cubeId;
   const cubeDetails = cubeManager.getSingleCube(id);

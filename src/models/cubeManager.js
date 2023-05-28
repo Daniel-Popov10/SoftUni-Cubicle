@@ -1,3 +1,5 @@
+const uniqueId = require("uniqid");
+
 const cubes = [
   {
     id: "1n73sh8holhz66elc",
@@ -23,6 +25,15 @@ const cubeManager = {
   }),
 
   getSingleCube: (getSingleCube = (id) => cubes.find((cube) => cube.id === id)),
+
+  createCube: (createCube = (cubeData) => {
+    const newCube = {
+      id: uniqueId,
+      ...cubeData,
+    };
+    cubes.push(newCube);
+    return newCube;
+  }),
 };
 
 module.exports = cubeManager;
