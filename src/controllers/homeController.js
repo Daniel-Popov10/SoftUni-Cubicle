@@ -3,6 +3,7 @@ const cubeManager = require("../models/cubeManager");
 
 router.get("/", (req, res) => {
   const allCubes = cubeManager.getAllCubes();
+  console.log(allCubes);
   res.render("index", { allCubes });
 });
 
