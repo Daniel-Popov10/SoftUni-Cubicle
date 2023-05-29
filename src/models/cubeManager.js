@@ -19,8 +19,13 @@ const cubes = [
 ];
 
 const cubeManager = {
-  getAllCubes: (getAllCubes = () => {
+  getAllCubes: (getAllCubes = (search, from, to) => {
     let result = cubes.slice();
+    if (search) {
+      result = result.filter((cube) =>
+        cube.name.toLowerCase().includes(search.toLowerCase())
+      );
+    }
     return result;
   }),
 
