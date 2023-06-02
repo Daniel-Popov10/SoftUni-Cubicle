@@ -1,5 +1,5 @@
 const uniqueId = require("uniqid");
-const cube = require('../models/cube');
+const Cube = require('../models/cube');
 
 const cubes = [
   {
@@ -67,13 +67,10 @@ const cubeManager = {
 
   getSingleCube: (getSingleCube = (id) => cubes.find((cube) => cube.id === id)),
 
-  createCube: (createCube = (cubeData) => {
-    const newCube = {
-      id: uniqueId(),
-      ...cubeData,
-    };
-    cubes.push(newCube);
-    return newCube;
+  createCube: (createCube = async (cubeData) => {
+    const cube = new Cube(cubeData)
+
+    await cube.save();
   }),
 };
 
