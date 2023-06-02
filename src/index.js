@@ -7,7 +7,8 @@ const expressConfig = require("./config/express");
 const routes = require("./config/routes");
 const dbConnect = require('./config/mongoose');
 
-dbConnect();
+dbConnect()
+  .catch((error) => console.log(error));
 
 expressConfig(app);
 app.use(routes);
