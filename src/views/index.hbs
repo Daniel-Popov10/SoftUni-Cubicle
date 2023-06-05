@@ -1,23 +1,23 @@
 <div class="container">
-    <main>
-      <h1>Browser</h1>
-      <form action="/" method="GET">
-        <input type="text" class="search" value ="{{search}}" name="search" placeholder="Search...">
-        <input type="number" name="from" class="difficulty" value ="{{from}}" placeholder="Difficulty from...">
-        <span>-</span>
-        <input type="number" name="to" class="difficulty" value="{{to}}" placeholder="Difficulty to...">
-        <input type="submit" value="search">
-      </form>
-      {{#if allCubes}}
-      {{#each allCubes}}
-      <div class="cube">
-        <img class="cube" src="{{imageUrl}}">
-        <p class="name">{{name}}</p>
-        <p><span>Difficulty level:</span>{{difficultyLevel}}</p>
-        <a class="btn" href="/cubes/details/{{id}}">Details</a>
-        </div>
-     {{/each}}
-    </main>
-        {{else}}
-        <h1>There are no cubes :(</h1>
-        {{/if}}
+  <main>
+    <h1>Browser</h1>
+    <form action="/" method="GET">
+      <input type="text" class="search" value="{{search}}" name="search" placeholder="Search...">
+      <input type="number" name="from" class="difficulty" value="{{from}}" placeholder="Difficulty from...">
+      <span>-</span>
+      <input type="number" name="to" class="difficulty" value="{{to}}" placeholder="Difficulty to...">
+      <input type="submit" value="search">
+    </form>
+    {{#if allCubes}}
+    {{#each allCubes}}
+    <div class="cube">
+      <img class="cube" src="{{imageUrl}}">
+      <p class="name">{{name}}</p>
+      <p><span>Difficulty level:</span>{{difficultyLevel}}</p>
+      <a class="btn" href="/cubes/details/{{_id}}">Details</a>
+    </div>
+    {{/each}}
+  </main>
+  {{else}}
+  <h1>There are no cubes :(</h1>
+  {{/if}}
