@@ -8,7 +8,7 @@ const routes = require("./config/routes");
 const dbConnect = require('./config/mongoose');
 
 dbConnect()
-  .catch((error) => console.log(error));
+  .catch((error) => console.log('DB error', error));
 
 expressConfig(app);
 app.use(routes);

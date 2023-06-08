@@ -5,9 +5,7 @@ const cubeManager = {
     let result = await Cube.find().lean();
 
     if (search) {
-      result = result.filter((cube) =>
-        cube.name.toLowerCase().includes(search.toLowerCase())
-      );
+      result = await Cube.find({ name: { $regex: search, $options: 'i' } }).lean();
     }
 
     if (from) {
