@@ -8,14 +8,9 @@ const cubeManager = {
       result = await Cube.find({ name: { $regex: search, $options: 'i' } }).lean();
     }
 
-    if (from) {
-      result = result.filter((cube) => cube.difficultyLevel >= Number(from));
+    if (from && to) {
+      result = await Cube.find({ $and: [{ difficultyLevel: { $gte: from } }, { difficultyLevel: { $lte: to } }] }).lean();
     }
-
-    if (to) {
-      result = result.filter((cube) => cube.difficultyLevel <= Number(to));
-    }
-
     return result;
   },
 
