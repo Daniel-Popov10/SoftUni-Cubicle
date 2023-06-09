@@ -11,10 +11,5 @@ router.post("/addAccessory", async (req, res) => {
     res.redirect('/');
 });
 
-router.get('/attach', (req, res) => {
-    console.log('accessory controller reached')
-    res.render('accessory/attach');
-});
-
 
 module.exports = router;
