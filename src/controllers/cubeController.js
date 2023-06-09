@@ -2,7 +2,7 @@ const router = require("express").Router();
 const cubeManager = require("../managers/cubeManager");
 
 router.get("/create", (req, res) => {
-  res.render("create");
+  res.render("cube/create");
 });
 
 router.post("/addCube", async (req, res) => {
@@ -25,7 +25,7 @@ router.get("/details/:cubeId", async (req, res) => {
     res.redirect("/404");
   }
 
-  res.render("details", { cubeDetails });
+  res.render("cube/details", { cubeDetails });
 });
 
 module.exports = router;
