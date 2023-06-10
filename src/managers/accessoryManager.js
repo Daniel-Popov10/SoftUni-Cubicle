@@ -7,7 +7,9 @@ const accessoryManager = {
         await accessory.save();
 
         return accessory;
-    }
+    },
+
+    getAccessories: () => Accessory.find().lean(),
 };
 
 module.exports = accessoryManager;

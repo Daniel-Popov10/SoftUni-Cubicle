@@ -5,6 +5,10 @@ const cubeSchema = new moongoose.Schema({
     description: String,
     imageUrl: String,
     difficultyLevel: Number,
+    accessories: [{
+        type: moongoose.Types.ObjectId,
+        ref: 'Accessory'
+    }]
 });
 
 const cube = moongoose.model('Cube', cubeSchema);
