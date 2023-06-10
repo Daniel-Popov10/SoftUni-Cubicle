@@ -1,7 +1,7 @@
 const Cube = require('../models/cube');
 
 const cubeManager = {
-  getAllCubes: getAllCubes = async (search, from, to) => {
+  getAllCubes: async (search, from, to) => {
     let result = await Cube.find().lean();
 
     if (search) {
@@ -14,9 +14,9 @@ const cubeManager = {
     return result;
   },
 
-  getSingleCube: getSingleCube = (id) => Cube.findById(id).lean(),
+  getSingleCube: (id) => Cube.findById(id).lean(),
 
-  createCube: createCube = async (cubeData) => {
+  createCube: async (cubeData) => {
     const cube = new Cube(cubeData)
 
     await cube.save();
