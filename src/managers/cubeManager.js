@@ -22,6 +22,11 @@ const cubeManager = {
     await cube.save();
     return cube;
   },
+
+  attachAccessory: async (cubeId, accessoryId) => {
+    const updatedCube = await Cube.findByIdAndUpdate(cubeId, { accessories: accessoryId });
+    return updatedCube.save();
+  },
 };
 
 module.exports = cubeManager;
