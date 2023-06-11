@@ -15,6 +15,7 @@ const cubeManager = {
   },
 
   getSingleCube: (id) => Cube.findById(id).lean(),
+  getCubeWithAccessories: (id) => Cube.findById(id).populate('accessories'),
 
   createCube: async (cubeData) => {
     const cube = new Cube(cubeData)

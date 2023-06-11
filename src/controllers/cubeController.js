@@ -20,8 +20,7 @@ router.post("/addCube", async (req, res) => {
 
 router.get("/details/:cubeId", async (req, res) => {
   const id = req.params.cubeId;
-  const cubeDetails = await cubeManager.getSingleCube(id);
-
+  const cubeDetails = await cubeManager.getCubeWithAccessories(id).lean();
   if (!cubeDetails) {
     res.redirect("/404");
   }
