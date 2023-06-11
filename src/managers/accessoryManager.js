@@ -10,6 +10,7 @@ const accessoryManager = {
     },
 
     getAccessories: () => Accessory.find().lean(),
+    getNotAttached: (accessoryIds) => Accessory.find({ _id: { $nin: [accessoryIds] } }).lean(),
 };
 
 module.exports = accessoryManager;

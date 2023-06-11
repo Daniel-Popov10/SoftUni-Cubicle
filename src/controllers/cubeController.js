@@ -32,7 +32,7 @@ router.get("/details/:cubeId", async (req, res) => {
 router.get('/:cubeId/attach-accessory', async (req, res) => {
   const cubeId = req.params.cubeId;
   const cubeDetails = await cubeManager.getSingleCube(cubeId);
-  const accessories = await accessoryManager.getAccessories();
+  const accessories = await accessoryManager.getNotAttached(cubeDetails.accessories);
   res.render('accessory/attach', { cubeDetails, accessories });
 });
 
