@@ -24,7 +24,7 @@ const cubeManager = {
   },
 
   attachAccessory: async (cubeId, accessoryId) => {
-    const updatedCube = await Cube.findByIdAndUpdate(cubeId, { accessories: accessoryId });
+    const updatedCube = await Cube.findByIdAndUpdate(cubeId, { $push: { accessories: accessoryId } });
     return updatedCube.save();
   },
 };
