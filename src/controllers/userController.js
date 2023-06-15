@@ -6,8 +6,8 @@ router.get('/register', (req, res) => {
 });
 
 router.post('/register', async (req, res) => {
-    const { username, password } = req.body;
-    await userManager.registerUser(username, password);
+    const { username, password, repeatPassword } = req.body;
+    await userManager.registerUser(username, password, repeatPassword);
     res.redirect('/users/login');
 });
 
