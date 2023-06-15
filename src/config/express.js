@@ -1,6 +1,7 @@
 const express = require("express");
 const handlebars = require("express-handlebars");
 const path = require("path");
+const cookieParser = require('cookie-parser');
 
 function expressConfig(app) {
   //TODO: Setup the view engine
@@ -18,6 +19,7 @@ function expressConfig(app) {
   app.use(express.urlencoded({ extended: false }));
   //TODO: Setup the static files
   app.use(express.static(path.resolve(__dirname, "../static")));
+  app.use(cookieParser);
 }
 
 module.exports = expressConfig;
