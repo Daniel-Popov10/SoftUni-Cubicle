@@ -19,7 +19,7 @@ function expressConfig(app) {
   app.use(express.urlencoded({ extended: false }));
   //TODO: Setup the static files
   app.use(express.static(path.resolve(__dirname, "../static")));
-  app.use(cookieParser);
+  app.use(cookieParser());
 }
 
 module.exports = expressConfig;
