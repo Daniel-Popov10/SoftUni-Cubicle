@@ -1,5 +1,7 @@
 const User = require('../models/user');
 const bcrypt = require('bcrypt');
+const jsonwebtoken = require('../lib/jwt');
+const { SECRET } = require('../config/utils');
 
 const userManager = {
     registerUser: async (username, password, repeatPassword) => {
@@ -20,8 +22,13 @@ const userManager = {
         if (!validatePassword) {
             throw new Error('Username or password does not match');
         }
+        const payload = {
+            id: user._id,
+            username: user.username,
+        }
 
-        return user;
+        const token = await jsonwebtoken.sign(payload, SECRET);
+        return token;
     },
 };
 

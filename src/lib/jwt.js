@@ -1,4 +1,4 @@
-const { util } = require('util');
+const util = require('util');
 const jwt = require('jsonwebtoken');
 
 const jsonwebtoken = {
