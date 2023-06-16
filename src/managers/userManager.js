@@ -1,7 +1,7 @@
 const User = require('../models/user');
 const bcrypt = require('bcrypt');
 const jsonwebtoken = require('../lib/jwt');
-const { SECRET } = require('../config/utils');
+const { SECRET } = require('../config/const');
 
 const userManager = {
     registerUser: async (username, password, repeatPassword) => {
