@@ -29,6 +29,7 @@ const cubeManager = {
     return updatedAccessoriesCube.save();
   },
   updateCube: async (cubeId, cubeData) => await Cube.findByIdAndUpdate(cubeId, cubeData),
+  deleteCube: async (cubeId) => await Cube.findByIdAndDelete(cubeId),
 };
 
 module.exports = cubeManager;
