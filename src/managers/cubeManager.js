@@ -25,9 +25,10 @@ const cubeManager = {
   },
 
   attachAccessory: async (cubeId, accessoryId) => {
-    const updatedCube = await Cube.findByIdAndUpdate(cubeId, { $push: { accessories: accessoryId } });
-    return updatedCube.save();
+    const updatedAccessoriesCube = await Cube.findByIdAndUpdate(cubeId, { $push: { accessories: accessoryId } });
+    return updatedAccessoriesCube.save();
   },
+  updateCube: async (cubeId, cubeData) => await Cube.findByIdAndUpdate(cubeId, cubeData),
 };
 
 module.exports = cubeManager;
