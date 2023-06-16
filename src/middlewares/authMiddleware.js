@@ -9,7 +9,7 @@ exports.auth = async (req, res, next) => {
             const user = await jsonwebtoken.verify(token, SECRET);
             req.user = user;
             next();
-        } catch {
+        } catch (err) {
             res.clearCookie('auth');
             res.render('/users/login');
         }
