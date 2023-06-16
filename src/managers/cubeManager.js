@@ -28,8 +28,8 @@ const cubeManager = {
     const updatedAccessoriesCube = await Cube.findByIdAndUpdate(cubeId, { $push: { accessories: accessoryId } });
     return updatedAccessoriesCube.save();
   },
-  updateCube: async (cubeId, cubeData) => await Cube.findByIdAndUpdate(cubeId, cubeData),
-  deleteCube: async (cubeId) => await Cube.findByIdAndDelete(cubeId),
+  updateCube: (cubeId, cubeData) => Cube.findByIdAndUpdate(cubeId, cubeData),
+  deleteCube: (cubeId) => Cube.findByIdAndDelete(cubeId),
 };
 
 module.exports = cubeManager;
