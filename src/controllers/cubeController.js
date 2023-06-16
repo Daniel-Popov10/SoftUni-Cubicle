@@ -58,4 +58,11 @@ router.post('/:cubeId/edit-cube', async (req, res) => {
   res.redirect(`/cubes/details/${cubeId}`);
 });
 
+router.get('/:cubeId/delete-cube', async (req, res) => {
+  const cubeId = req.params.cubeId;
+  const cubeDetails = await cubeManager.getSingleCube(cubeId);
+  const options = getDifficultyOptionsViewData(cubeDetails.difficultyLevel);
+  res.render('cube/delete', { cubeDetails, options });
+});
+
 module.exports = router;
