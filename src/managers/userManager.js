@@ -23,7 +23,7 @@ const userManager = {
             throw new Error('Username or password does not match');
         }
         const payload = {
-            id: user._id,
+            _id: user._id,
             username: user.username,
         }
 

@@ -15,6 +15,7 @@ router.post("/addCube", async (req, res) => {
     description,
     imageUrl,
     difficultyLevel: Number(difficultyLevel),
+    creator: req.user._id,
   });
   res.redirect("/");
 });
@@ -22,11 +23,14 @@ router.post("/addCube", async (req, res) => {
 router.get("/details/:cubeId", async (req, res) => {
   const id = req.params.cubeId;
   const cubeDetails = await cubeManager.getCubeWithAccessories(id).lean();
+
+  const isCreator = cubeDetails.creator?.toString() === req.user?._id;
+
   if (!cubeDetails) {
     res.redirect("/404");
   }
 
-  res.render("cube/details", { cubeDetails });
+  res.render("cube/details", { cubeDetails, isCreator });
 });
 
 router.get('/:cubeId/attach-accessory', async (req, res) => {
