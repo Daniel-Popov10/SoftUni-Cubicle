@@ -7,7 +7,7 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Username is required!'],
         minLength: [5, 'Username is not long enough!'],
-        match: /^[A-Za-z0-9]+$/,
+        match: [/^[A-Za-z0-9]+$/, 'Username must be alphanumeric!'],
         unique: true,
     },
     password: {
