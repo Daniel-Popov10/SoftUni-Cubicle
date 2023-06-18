@@ -6,6 +6,7 @@ const app = express();
 const expressConfig = require("./config/express");
 const routes = require("./config/routes");
 const dbConnect = require('./config/mongoose');
+const errorHandler = require('./middlewares/errorHandlerMiddleware');
 
 dbConnect()
   .then(() => console.log('Db connected'))
@@ -13,6 +14,7 @@ dbConnect()
 
 expressConfig(app);
 app.use(routes);
+app.use(errorHandler);
 
 app.listen(
   config.port,
