@@ -25,7 +25,8 @@ router.post("/addCube", isAuth, async (req, res) => {
     res.redirect("/");
   } catch (err) {
     const errorMessages = extractErrorMessages(err);
-    res.render('cube/create', { errorMessages });
+
+    return res.status(400).render('cube/create', { errorMessages });
   }
 
 });
