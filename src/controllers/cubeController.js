@@ -3,22 +3,31 @@ const cubeManager = require("../managers/cubeManager");
 const accessoryManager = require("../managers/accessoryManager");
 const { getDifficultyOptionsViewData } = require('../utils/viewHepler');
 const { isAuth } = require('../middlewares/authMiddleware');
+const { extractErrorMessages } = require('../utils/errorHelpers');
 
-router.get("/create", (req, res) => {
-  res.render("cube/create");
+router.get('/create', (req, res) => {
+  res.render('cube/create');
 });
 
 router.post("/addCube", isAuth, async (req, res) => {
+
   const { name, description, imageUrl, difficultyLevel } = req.body;
 
-  await cubeManager.createCube({
-    name,
-    description,
-    imageUrl,
-    difficultyLevel: Number(difficultyLevel),
-    creator: req.user._id,
-  });
-  res.redirect("/");
+  try {
+    await cubeManager.createCube({
+      name,
+      description,
+      imageUrl,
+      difficultyLevel: Number(difficultyLevel),
+      creator: req.user._id,
+    });
+    console.log('created')
+    res.redirect("/");
+  } catch (err) {
+    const errorMessages = extractErrorMessages(err);
+    res.render('cube/create', { errorMessages });
+  }
+
 });
 
 router.get("/details/:cubeId", async (req, res) => {
