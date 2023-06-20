@@ -6,11 +6,12 @@ const userSchema = new mongoose.Schema({
     username: {
         type: String,
         required: [true, 'Username is required!'],
-        minLength: [5, 'Username is not long enough!'],
-        match: [/^[A-Za-z0-9]+$/, 'Username must be alphanumeric!'],
+        minLength: [5, 'Username must be between 5 and 15 characters!'],
+        maxLength: [15, 'Username must be between 5 and 15 characters!'],
+        match: [/^[A-Za-z0-9]+$/, 'Invalid characters, username must consist of letters or numbers only!'],
         unique: {
             value: true,
-            message: 'Username already taken!'
+            message: 'Username already taken!',
         }
     },
     password: {
@@ -19,9 +20,10 @@ const userSchema = new mongoose.Schema({
             validator: function (value) {
                 return /^[A-Za-z0-9]+$/.test(value);
             },
-            message: 'Invalid password characters!',
+            message: 'Invalid characters, password must consist of letters or numbers only!',
         },
-        minLength: [5, 'Password is not long enough!'],
+        minLength: [8, 'Password must be between 8 and 15 characters!'],
+        maxLength: [15, 'Password must be between 8 and 15 characters!'],
     },
 });
 
