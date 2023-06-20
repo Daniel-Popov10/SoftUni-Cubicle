@@ -29,8 +29,9 @@ router.post('/login', async (req, res, next) => {
         const token = await userManager.login(username, password);
         res.cookie('auth', token, { httpOnly: true });
         res.redirect('/');
-    } catch (error) {
-        next(error);
+    } catch (err) {
+        const errorMessages = extractErrorMessages(err);
+        return res.status(404).render('user/login', { errorMessages, username });
     }
 
 
