@@ -1,6 +1,6 @@
 # Educational express app - JS Back-End - May 2023
 
-Cubicle is a small educational app delevoped during the javaScript back-end softUni course. It is written entirely in expressJS. 
+Cubicle is a small educational app delevoped during the javaScript Back-end softUni course. It is written entirely in expressJS. 
 
 The app uses the following technology stack and libraries for it's core functionalities.
 
